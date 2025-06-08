@@ -22,7 +22,7 @@ Aplikacja pozwala na:
 ## Struktura projektu
 
 ### Frontend (Vue.js)
-``
+```
 frontend/
 │
 ├── public/                # Statyczne pliki (index.html, favicon itp.)
@@ -37,11 +37,11 @@ frontend/
 │   ├── main.js            # Punkt wejścia aplikacji
 │
 └── package.json           # Plik konfiguracyjny npm (zależności, skrypty)
-``
+```
 
 
 ### Backend (Flask)
-``
+```
 backend/
 │
 ├── app/                   # Główny folder aplikacji
@@ -55,7 +55,7 @@ backend/
 │
 ├── requirements.txt       # Lista zależności Pythona
 └── run.py                 # Punkt wejścia do aplikacji (uruchomienie Flask)
-``
+```
 
 ### Baza danych (PostgreSQL)
 
