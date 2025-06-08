@@ -22,25 +22,26 @@ Aplikacja pozwala na:
 ## Struktura projektu
 
 ### Frontend (Vue.js)
-
+``
 frontend/
 │
-├── public/ # Statyczne pliki (index.html, favicon itp.)
+├── public/                # Statyczne pliki (index.html, favicon itp.)
 │
-├── src/ # Katalog z głównymi plikami aplikacji
-│ ├── assets/ # Obrazy, czcionki i inne zasoby statyczne
-│ ├── components/ # Komponenty Vue.js (np. Chat, Swiping, Profile)
-│ ├── views/ # Widoki (np. Home, Login, Chat)
-│ ├── router/ # Konfiguracja tras (Vue Router)
-│ ├── store/ # Vuex (do zarządzania stanem aplikacji)
-│ ├── App.vue # Główny komponent aplikacji
-│ ├── main.js # Punkt wejścia aplikacji
+├── src/                   # Katalog z głównymi plikami aplikacji
+│   ├── assets/            # Obrazy, czcionki i inne zasoby statyczne
+│   ├── components/        # Komponenty Vue.js (np. Chat, Swiping, Profile)
+│   ├── views/             # Widoki (np. Home, Login, Chat)
+│   ├── router/            # Konfiguracja tras (Vue Router)
+│   ├── store/             # Vuex (do zarządzania stanem aplikacji)
+│   ├── App.vue            # Główny komponent aplikacji
+│   ├── main.js            # Punkt wejścia aplikacji
 │
-└── package.json # Plik konfiguracyjny npm (zależności, skrypty)
+└── package.json           # Plik konfiguracyjny npm (zależności, skrypty)
+``
 
 
 ### Backend (Flask)
-
+``
 backend/
 │
 ├── app/                   # Główny folder aplikacji
@@ -54,6 +55,7 @@ backend/
 │
 ├── requirements.txt       # Lista zależności Pythona
 └── run.py                 # Punkt wejścia do aplikacji (uruchomienie Flask)
+``
 
 ### Baza danych (PostgreSQL)
 
