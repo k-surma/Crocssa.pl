@@ -1,9 +1,9 @@
 # Crocssa.pl - Aplikacja społecznościowa
 
-Crocssa.pl to aplikacja społecznościowa typu "Tinder", ale z naciskiem na wymianę doświadczeń z obuwiem, w szczególności na "kroksy". Użytkownicy mogą przeglądać zdjęcia swoich kroksów, dodać opis, podać szczegóły (wiek, liczba dziurek itp.), a następnie nawiązywać interakcje poprzez system czatów.
+Crocssa.pl to aplikacja społecznościowa typu "Tinder", ale z naciskiem na wymianę doświadczeń z obuwiem, w szczególności na crocsy. Użytkownicy mogą przeglądać zdjęcia swoich crocsów, dodać opis, podać szczegóły (model, kolor, rozmiar, liczba dziurek, ozdoby itp.), a następnie nawiązywać interakcje poprzez system czatów.
 
 Aplikacja pozwala na:
-- Przeglądanie kroksów innych użytkowników.
+- Przeglądanie crocsów innych użytkowników.
 - Swajpowanie (lajkowanie/odrzucanie) na wzór aplikacji Tinder.
 - Rozpoczynanie rozmów po wzajemnym swajpowaniu.
 - Czatowanie w czasie rzeczywistym z użyciem WebSocketów.
@@ -25,18 +25,18 @@ Aplikacja pozwala na:
 
 frontend/
 │
-├── public/                # Statyczne pliki (index.html, favicon itp.)
+├── public/ # Statyczne pliki (index.html, favicon itp.)
 │
-├── src/                   # Katalog z głównymi plikami aplikacji
-│   ├── assets/            # Obrazy, czcionki i inne zasoby statyczne
-│   ├── components/        # Komponenty Vue.js (np. Chat, Swiping, Profile)
-│   ├── views/             # Widoki (np. Home, Login, Chat)
-│   ├── router/            # Konfiguracja tras (Vue Router)
-│   ├── store/             # Vuex (do zarządzania stanem aplikacji)
-│   ├── App.vue            # Główny komponent aplikacji
-│   ├── main.js            # Punkt wejścia aplikacji
+├── src/ # Katalog z głównymi plikami aplikacji
+│ ├── assets/ # Obrazy, czcionki i inne zasoby statyczne
+│ ├── components/ # Komponenty Vue.js (np. Chat, Swiping, Profile)
+│ ├── views/ # Widoki (np. Home, Login, Chat)
+│ ├── router/ # Konfiguracja tras (Vue Router)
+│ ├── store/ # Vuex (do zarządzania stanem aplikacji)
+│ ├── App.vue # Główny komponent aplikacji
+│ ├── main.js # Punkt wejścia aplikacji
 │
-└── package.json           # Plik konfiguracyjny npm (zależności, skrypty)
+└── package.json # Plik konfiguracyjny npm (zależności, skrypty)
 
 
 ### Backend (Flask)
