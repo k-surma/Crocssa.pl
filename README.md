@@ -95,6 +95,6 @@ backend/
 
 ## Autorzy
 - Kinga Surma
-- Radosław Brońka
-- Kacper Pabian
+- Radoslav Andrievich Bronkovich
+- Kacper Pabian (Ardent Amelka)
 
