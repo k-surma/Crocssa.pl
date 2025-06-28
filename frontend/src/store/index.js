@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { io } from "socket.io-client";
-import axios from "axios";
+import axios from "../api";
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({ token: null, user: null }),

@@ -13,6 +13,9 @@ def create_app():
     cors.init_app(app, resources={r"*": {"origins": "*"}})
     sio.init_app(app)             # 👈 używamy aliasu
 
+    with app.app_context():
+        db.create_all()
+
     app.register_blueprint(auth_bp)
     app.register_blueprint(users_bp)
     app.register_blueprint(matches_bp)

@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import SwipeCard from "../components/SwipeCard.vue";
-import axios from "axios";
+import axios from "../api";
 const profiles = ref([]);
 
 onMounted(async () => {

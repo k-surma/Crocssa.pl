@@ -1,32 +1,52 @@
 <script setup>
-import { ref } from "vue";
-import axios from "axios";
-import { useRouter } from "vue-router";
+import {ref} from "vue";
+import axios from "../api";
+import {useRouter} from "vue-router";
 
 const name = ref("");
+const age = ref(null);
 const email = ref("");
 const password = ref("");
-const age = ref(null);
+const errorMsg = ref("");
 const router = useRouter();
 
 const submit = async () => {
-  await axios.post("/api/auth/register", {
-    name: name.value,
-    email: email.value,
-    password: password.value,
-    age: age.value,
-  });
-  router.push("/login");
+  errorMsg.value = "";
+  try {
+    await axios.post("/api/auth/register", {
+      name: name.value,
+      email: email.value,
+      password: password.value,
+      age: age.value,
+    });
+    router.push("/login");        // ✅ po sukcesie na logowanie
+  } catch (e) {
+    errorMsg.value =
+        e.response?.data?.msg || "Nie udało się zarejestrować.";
+  }
 };
 </script>
 
 <template>
   <div class="h-screen flex flex-col items-center justify-center gap-3">
     <h1 class="text-2xl font-bold">Rejestracja</h1>
-    <input v-model="name" type="text" placeholder="Imię" class="border px-3 py-2 rounded w-64" />
-    <input v-model="age" type="number" placeholder="Wiek" class="border px-3 py-2 rounded w-64" />
-    <input v-model="email" type="email" placeholder="Email" class="border px-3 py-2 rounded w-64" />
-    <input v-model="password" type="password" placeholder="Hasło" class="border px-3 py-2 rounded w-64" />
-    <button @click="submit" class="bg-green-500 text-white px-6 py-2 rounded">Zarejestruj</button>
+
+    <input v-model="name" placeholder="Imię" class="input"/>
+    <input v-model="age" placeholder="Wiek" type="number" class="input"/>
+    <input v-model="email" placeholder="Email" type="email" class="input"/>
+    <input v-model="password" placeholder="Hasło" type="password" class="input"/>
+
+    <button @click="submit" class="btn-primary">Zarejestruj</button>
+    <p v-if="errorMsg" class="text-red-600">{{ errorMsg }}</p>
   </div>
 </template>
+
+<style scoped>
+.input {
+  @apply border px-3 py-2 rounded w-64;
+}
+
+.btn-primary {
+  @apply bg-green-500 text-white px-6 py-2 rounded;
+}
+</style>
