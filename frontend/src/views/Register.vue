@@ -1,28 +1,28 @@
 <script setup>
-import {ref} from "vue";
-import axios from "../api";
-import {useRouter} from "vue-router";
+import { ref } from "vue";
+import api from "../api";           // ← instancja z baseURL i tokenem
+import { useRouter } from "vue-router";
 
-const name = ref("");
-const age = ref(null);
-const email = ref("");
-const password = ref("");
-const errorMsg = ref("");
-const router = useRouter();
+const name      = ref("");
+const age       = ref(null);
+const email     = ref("");
+const password  = ref("");
+const errorMsg  = ref("");
+const router    = useRouter();
 
 const submit = async () => {
   errorMsg.value = "";
   try {
-    await axios.post("/api/auth/register", {
+    await api.post("/api/auth/register", {     // ← tu było axios.post
       name: name.value,
       email: email.value,
       password: password.value,
       age: age.value,
     });
-    router.push("/login");        // ✅ po sukcesie na logowanie
+    router.push("/login");
   } catch (e) {
     errorMsg.value =
-        e.response?.data?.msg || "Nie udało się zarejestrować.";
+      e.response?.data?.msg || "Nie udało się zarejestrować.";
   }
 };
 </script>

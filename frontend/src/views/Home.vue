@@ -1,17 +1,26 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import SwipeCard from "../components/SwipeCard.vue";
-import axios from "../api";
+import { useAuthStore } from "../store";
+import { useRouter } from "vue-router";
+import api from "../api";
+
+const auth = useAuthStore();
+const router = useRouter();
 const profiles = ref([]);
 
 onMounted(async () => {
-  const r = await axios.get("/api/users/recommendations");
-  profiles.value = r.data;
+  if (!auth.token) {            // ⬅ kiedy ktoś wylogowany wejdzie na /
+    router.push("/login");
+    return;
+  }
+  const { data } = await api.get("/api/users/recommendations");
+  profiles.value = data;
 });
 
 const swipe = async (direction) => {
   const profile = profiles.value.shift();
-  if (direction === "like") await axios.post(`/api/matches/${profile.id}`);
+  if (direction === "like") await api.post(`/api/matches/${profile.id}`);
 };
 </script>
 

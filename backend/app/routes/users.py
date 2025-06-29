@@ -48,3 +48,33 @@ def recommendations():
             for u in users
         ]
     )
+
+# ─── Pobierz własny profil ────────────────────────────────────────────────
+@users_bp.get("/me")
+@jwt_required()
+def my_profile():
+    me = get_jwt_identity()
+    u = User.query.get_or_404(me)
+    return {
+        "id": u.id,
+        "name": u.name,
+        "age": u.age,
+        "image": u.image,
+        "description": u.description,
+    }
+
+# ─── Aktualizuj własny profil ─────────────────────────────────────────────
+@users_bp.put("/me")
+@jwt_required()
+def update_profile():
+    me = get_jwt_identity()
+    data = request.json
+    user = User.query.get_or_404(me)
+
+    # tylko wybrane pola
+    for field in ("name", "age", "image", "description"):
+        if field in data:
+            setattr(user, field, data[field])
+
+    db.session.commit()
+    return {"msg": "updated"}

@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import api from "../api"
+
 const props = defineProps({ profile: Object, onSwipe: Function });
 const x = ref(0);
 const handle = (e) => {

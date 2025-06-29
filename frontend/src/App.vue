@@ -4,6 +4,7 @@
     <nav class="space-x-4">
       <router-link v-if="!auth.token" to="/login">Logowanie</router-link>
       <router-link v-if="!auth.token" to="/register">Rejestracja</router-link>
+      <router-link v-if="auth.token" to="/profile">Profil</router-link>
       <button v-else @click="auth.logout()">Wyloguj</button>
     </nav>
   </header>

@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "../store";
+import api from "../api.js";
 
 const email    = ref("");
 const password = ref("");
